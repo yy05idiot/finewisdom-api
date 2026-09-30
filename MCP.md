@@ -2,6 +2,8 @@
 
 MCP (Model Context Protocol) 服务器，让 Claude / Cursor / Cline 等 AI 客户端直接调用 Finewisdom 的社媒与电商数据接口。
 
+> **官方 MCP Registry 已收录**：`io.github.yy05idiot/finewisdom`（[查询收录状态](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.yy05idiot/finewisdom)，状态 active，发布 2026-09-30）
+
 - **端点**：`https://finewisdom.top/mcp`（Streamable HTTP，无状态）
 - **协议**：JSON-RPC 2.0，兼容 `2024-11-05` / `2025-03-26` / `2025-06-18` 三个协议版本
 - **工具数**：30 个聚合工具（覆盖 89 个底层接口，按「平台 × 资源类型」聚合，不刷爆 Agent 工具列表）
