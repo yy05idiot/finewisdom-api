@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yy05idiot/finewisdom",
+  "title": "Finewisdom 社媒与电商数据接口",
+  "description": "统一 Token 调用 89 个社媒与电商数据接口，覆盖抖音、小红书、微博、B站、视频号、TikTok 与淘宝、京东、1688 等 14 平台，注册赠 20 次。",
+  "version": "1.0.0",
+  "websiteUrl": "https://finewisdom.top",
+  "repository": {
+    "url": "https://github.com/yy05idiot/finewisdom-api",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://finewisdom.top/mcp",
+      "headers": [
+        {
+          "name": "X-FW-Token",
+          "description": "Finewisdom API Token（fw_ 开头，finewisdom.top 注册获取，赠 20 次）",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
