@@ -1,0 +1,148 @@
+# Finewisdom API
+
+> 统一 REST GET 接口平台：社媒（抖音/小红书/微博/B站/知乎/快手/视频号/TikTok/IG/YouTube/Twitter）+ 电商（淘宝/京东/1688），共 90 个接口。
+
+## 调用协议
+
+- 端点: `GET https://finewisdom.top/api?token=YOUR_TOKEN&method=<api_name>&<params>`
+- 响应: `{"status":"success","message":"API调用成功","data":{...}}`
+- 计费: 成功才扣费；限流 5 req/min/IP；注册送 20 次
+- 控制台(接口目录+示例+注册): https://finewisdom.top
+
+## 接口清单
+
+### 抖音
+
+- `douyin_video_comments`: 获取抖音视频的评论列表
+- `douyin_video_detail`: 获取抖音视频详细信息
+- `douyin_keyword_search`: 按关键词搜索抖音内容
+- `douyin_shop_search`: 搜索抖音店铺商品
+- `douyin_product_comments`: 获取抖音商品评论列表
+- `douyin_product_detail`: 获取抖音商品详情（Yx2接口）
+- `douyin_product_keyword_search`: 按关键词搜索抖音商品
+- `douyin_video_play_count`: 获取抖音视频播放量
+- `douyin_video_like_count`: 获取抖音视频点赞数
+- `douyin_author_info`: 获取抖音作者详细信息
+- `douyin_author_search`: 搜索抖音作者作品
+
+### 微博
+
+- `weibo_post_detail`: 获取微博帖子详情（含互动量）
+- `weibo_post_comments`: 获取微博帖子评论列表
+- `weibo_sub_comments`: 获取微博评论的回复列表
+- `weibo_user_info`: 获取微博用户信息
+- `weibo_user_posts`: 获取微博用户帖子列表
+- `weibo_keyword_search`: 按关键词搜索微博
+- `weibo_hot_search`: 获取微博热搜榜
+
+### 知乎
+
+- `zhihu_post_detail`: 获取知乎回答详情
+- `zhihu_post_comments`: 获取知乎回答评论列表
+- `zhihu_sub_comments`: 获取知乎评论的子评论
+- `zhihu_user_info`: 获取知乎用户信息
+- `zhihu_user_posts`: 获取知乎用户的回答列表
+- `zhihu_keyword_search`: 按关键词搜索知乎文章
+- `zhihu_hot_list`: 获取知乎热榜
+
+### B站
+
+- `bili_post_detail`: 获取B站视频详情（TikHub备用源）
+- `bili_post_comments`: 获取B站视频评论（TikHub备用源）
+- `bili_sub_comments`: 获取B站评论的回复（TikHub备用源）
+- `bili_user_info`: 获取B站UP主信息（TikHub备用源）
+- `bili_user_posts`: 获取B站UP主投稿列表（TikHub备用源）
+- `bili_keyword_search`: B站综合搜索（TikHub备用源）
+- `bili_hot_search`: 获取B站热搜词（TikHub备用源）
+
+### 快手
+
+- `ks_post_detail`: 获取快手视频详情
+- `ks_post_comments`: 获取快手视频评论列表
+- `ks_sub_comments`: 获取快手评论的回复
+- `ks_user_info`: 获取快手用户信息
+- `ks_user_posts`: 获取快手用户视频列表
+- `ks_keyword_search`: 按关键词搜索快手内容
+- `ks_hot_list`: 获取快手热榜
+
+### Instagram
+
+- `ig_post_detail`: 按shortcode获取Instagram帖子详情
+- `ig_post_comments`: 获取Instagram帖子评论（需先转media_id）
+- `ig_sub_comments`: 获取Instagram评论的子评论
+- `ig_user_info`: 获取Instagram用户信息
+- `ig_user_posts`: 获取Instagram用户帖子列表
+- `ig_keyword_search`: Instagram综合搜索（用户/话题/地点）
+- `ig_shortcode_to_media_id`: 帖子shortcode转media_id（评论接口前置）
+
+### 小红书
+
+- `xhs_note_search`: 通过关键词搜索小红书笔记，支持排序和筛选
+- `xhs_note_detail`: 获取小红书笔记详细信息，包括标题、内容、图片、视频等
+- `xhs_note_comments`: 获取小红书笔记的一级评论列表
+- `xhs_sub_comments`: 获取某条评论下的二级评论列表
+- `xhs_user_info`: 获取小红书用户信息，包括粉丝数、笔记数、获赞数等
+- `xhs_user_notes`: 获取用户发布的笔记列表，支持翻页
+
+### 视频号
+
+- `channels_post_detail`: 获取微信视频号作品详情
+- `channels_post_comments`: 获取视频号作品评论
+- `channels_sub_comments`: 获取视频号评论的回复
+- `channels_user_info`: 获取视频号账号资料
+- `channels_user_posts`: 获取视频号账号作品列表
+- `channels_search_in_channel`: 在视频号账号内搜索作品
+
+### TikTok
+
+- `tiktok_post_detail`: 获取TikTok视频详情
+- `tiktok_post_comments`: 获取TikTok视频评论
+- `tiktok_sub_comments`: 获取TikTok评论回复
+- `tiktok_user_info`: 获取TikTok用户信息
+- `tiktok_user_posts`: 获取TikTok用户视频列表
+- `tiktok_keyword_search`: TikTok综合搜索
+
+### YouTube
+
+- `yt_post_detail`: 获取YouTube视频详情
+- `yt_post_comments`: 获取YouTube视频评论（返回continuation_token翻页）
+- `yt_sub_comments`: YouTube评论翻页与回复
+- `yt_user_info`: 获取YouTube频道信息
+- `yt_user_posts`: 获取YouTube频道视频列表
+- `yt_keyword_search`: 搜索YouTube视频
+
+### Twitter
+
+- `tw_post_detail`: 获取推文详情
+- `tw_post_comments`: 获取推文评论（回复）
+- `tw_user_info`: 获取推特用户信息
+- `tw_user_posts`: 获取用户推文列表
+- `tw_keyword_search`: 搜索推文
+- `tw_trending`: 获取推特趋势话题
+
+### 淘宝
+
+- `taobao_item_get`: 获取淘宝商品详情信息
+- `taobao_item_desc`: 获取淘宝商品描述信息
+- `taobao_comments`: 获取淘宝商品评论列表
+- `taobao_shop_search`: 搜索淘宝店铺商品列表
+- `taobao_original_detail`: 获取淘宝券前详情（不含券后价、券面额、佣金等，建议只用来获取标题图片等信息）
+
+### 1688
+
+- `item_search_img_1688`: 通过图片搜索1688商品
+- `item_get_1688`: 获取1688商品详情
+- `item_search_1688`: 按关键词搜索1688商品
+- `item_get_company_1688`: 获取1688商家信息
+- `item_review_1688`: 获取1688商品评论
+
+### 京东
+
+- `jd_item_get`: 获取京东商品详情信息（不含券后价、券面额、佣金等，建议只用来获取标题图片等信息）
+- `jd_item_desc`: 获取京东商品描述信息
+- `jd_comments`: 获取京东商品评论列表
+- `jd_shop_search`: 搜索京东店铺商品列表
+
+## 安全提示
+
+- 文档中一律使用占位 Token `fw_your_token`，请勿在公开场合泄露真实 Token
