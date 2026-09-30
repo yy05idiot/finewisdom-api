@@ -2,7 +2,7 @@
 
 > 社媒 + 电商数据统一接口平台 —— 一个 Token，90+ 接口，覆盖国内外主流平台。
 
-[![Website](https://img.shields.io/badge/Website-finewisdom.top-blue)](https://finewisdom.top) [![Console](https://img.shields.io/badge/Console-%E6%8E%A7%E5%88%B6%E5%8F%B0-2ea44f)](https://finewisdom.top) [![Protocol](https://img.shields.io/badge/Protocol-REST%20GET-orange)](#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)
+[![Website](https://img.shields.io/badge/Website-finewisdom.top-blue)](https://finewisdom.top) [![Console](https://img.shields.io/badge/Console-%E6%8E%A7%E5%88%B6%E5%8F%B0-2ea44f)](https://finewisdom.top) [![MCP](https://img.shields.io/badge/MCP-finewisdom.top%2Fmcp-8a2be2)](MCP.md) [![Protocol](https://img.shields.io/badge/Protocol-REST%20GET-orange)](#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)
 
 ## 平台覆盖
 
@@ -23,7 +23,7 @@
 | 淘宝 | 淘宝 | 5 | 商品详情/评论/店铺搜索/原始详情 |
 | 京东 | 京东 | 4 | 商品详情/评论/店铺搜索/图文描述 |
 
-**共 89 个在线接口**。
+**共 89 个在线接口**。支持 REST GET 与 [MCP 协议](MCP.md)（AI Agent 直连：`https://finewisdom.top/mcp`）。
 
 ## 快速开始
 
@@ -31,7 +31,7 @@
 2. 调用接口（纯 GET，无 SDK 依赖）：
 
 ```bash
-curl "https://finewisdom.top/api?token=fw_your_token&method=douyin_video_detail&aweme_id=7624566919911230720"
+curl "https://finewisdom.top/api?token=YOUR_TOKEN&method=douyin_video_detail&aweme_id=7624566919911230720"
 ```
 
 3. 响应统一格式：
