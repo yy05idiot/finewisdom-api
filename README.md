@@ -31,7 +31,7 @@
 2. 调用接口（纯 GET，无 SDK 依赖）：
 
 ```bash
-curl "https://finewisdom.top/api?token=YOUR_TOKEN&method=douyin_video_detail&aweme_id=7624566919911230720"
+curl "https://finewisdom.top/api?token=fw_your_token&method=douyin_video_detail&aweme_id=7624566919911230720"
 ```
 
 3. 响应统一格式：
