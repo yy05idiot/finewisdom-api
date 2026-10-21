@@ -49,7 +49,7 @@ curl "https://finewisdom.top/api?token=YOUR_TOKEN&method=douyin_video_detail&awe
 ### 参数规则
 
 - 所有参数以 query string 形式拼接：`&参数名=值`
-- 分页类参数：`page`（抖音/淘宝/京东系，从 0 或 1 开始，见各接口说明）、`cursor`/`offset`（TikHub 系）
+- 分页类参数：`page`（抖音/淘宝/京东系，从 0 或 1 开始，见各接口说明）、`cursor`/`offset`（社媒接口）
 - 计费规则：**仅在调用成功时扣费**，失败自动退回
 - 限流：5 次/分钟/IP（突发友好，勿高频并发）
 
@@ -229,3 +229,4 @@ curl "https://finewisdom.top/api?token=YOUR_TOKEN&method=douyin_video_detail&awe
 
 - 控制台：https://finewisdom.top（注册 / 游客预览 / 文档 / 充值 / 工单）
 - 邮箱：17664744@qq.com
+
