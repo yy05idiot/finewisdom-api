@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.yy05idiot/finewisdom",
   "title": "Finewisdom 社媒与电商数据接口",
-  "description": "统一 Token 调用 102 个社媒与电商数据接口，覆盖抖音、小红书、TikTok、Instagram、YouTube、X、淘宝、京东等 15 个平台。按次 ¥0.1–0.3，成功才计费。",
-  "version": "1.0.1",
+  "description": "统一 Token 调用 103 个社媒与电商数据接口，覆盖抖音、小红书、TikTok、Instagram、YouTube、X、淘宝、京东等 15 个平台。按次 ¥0.1–0.3，成功才计费。",
+  "version": "1.0.2",
   "websiteUrl": "https://finewisdom.top",
   "repository": {
     "url": "https://github.com/yy05idiot/finewisdom-api",
