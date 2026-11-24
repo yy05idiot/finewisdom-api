@@ -6,7 +6,7 @@ MCP (Model Context Protocol) 服务器，让 Claude / Cursor / Cline 等 AI 客�
 
 - **端点**：`https://finewisdom.top/mcp`（Streamable HTTP，无状态）
 - **协议**：JSON-RPC 2.0，兼容 `2024-11-05` / `2025-03-26` / `2025-06-18` 三个协议版本
-- **工具数**：30 个聚合工具（覆盖 89 个底层接口，按「平台 × 资源类型」聚合，不刷爆 Agent 工具列表）
+- **工具数**：103 个独立工具（每个 REST 接口一一对应一个 MCP 工具，`tools/list` 可全量发现）
 - **计费**：与 REST API 完全一致 —— 按次计费、成功才扣费、注册赠 20 次
 
 ## 快速接入
@@ -51,38 +51,30 @@ MCP (Model Context Protocol) 服务器，让 Claude / Cursor / Cline 等 AI 客�
 
 ## 工具清单
 
-| 类别 | 工具 | 说明 |
-|---|---|---|
-| 抖音 | `douyin_video` | 视频详情（点赞/评论/分享、作者信息） |
-| 抖音 | `douyin_search` | 关键词搜索视频 |
-| 抖音 | `douyin_video_comments` | 视频评论列表 |
-| 抖音 | `douyin_author` | 作者主页信息 |
-| 抖音 | `douyin_product` | 商品详情 |
-| 电商 | `ecommerce_item` | 淘宝/京东商品详情（platform 参数区分） |
-| 电商 | `ecommerce_comments` | 淘宝/京东商品评论 |
-| 电商 | `ecommerce_shop` | 店铺在售商品搜索 |
-| 1688 | `item_1688` | 商品详情 |
-| 1688 | `search_1688` | 关键词搜索 |
-| 1688 | `img_search_1688` | 以图搜图 |
-| 1688 | `reviews_1688` | 商品评论 |
-| 1688 | `company_1688` | 商家/公司详情 |
-| 小红书 | `xhs_note_search` / `xhs_note` / `xhs_note_comments` / `xhs_user` | 笔记搜索/详情/评论、用户信息 |
-| 微博 | `weibo_post` / `weibo_comments` | 帖子详情、评论 |
-| 知乎 | `zhihu_post` / `zhihu_comments` | 回答详情、评论 |
-| B站 | `bili_video` | 视频详情 |
-| 快手 | `ks_video` | 视频详情 |
-| 视频号 | `channels_video` / `channels_comments` | 作品详情（传分享链接）、评论 |
-| TikTok | `tiktok_video` / `tiktok_search` | 视频详情、关键词搜索 |
-| Instagram | `ig_post` | 帖子详情 |
-| YouTube | `yt_video` | 视频详情 |
-| Twitter | `tw_post` | 推文详情 |
+103 个工具，与 REST 接口一一对应。按平台速览：
 
-完整 89 接口目录见 [README](README.md) 或控制台 <https://finewisdom.top>。
+- **抖音（13）**: `douyin_author_info`、`douyin_author_search`、`douyin_keyword_search`、`douyin_product_comments`、`douyin_product_detail`、`douyin_product_detail_v2`、`douyin_product_detail_v3`、`douyin_product_keyword_search`、`douyin_shop_search`、`douyin_video_comments`、`douyin_video_detail`、`douyin_video_like_count`、`douyin_video_play_count`
+- **B站（7）**: `bili_hot_search`、`bili_keyword_search`、`bili_post_comments`、`bili_post_detail`、`bili_sub_comments`、`bili_user_info`、`bili_user_posts`
+- **Instagram（7）**: `ig_keyword_search`、`ig_post_comments`、`ig_post_detail`、`ig_shortcode_to_media_id`、`ig_sub_comments`、`ig_user_info`、`ig_user_posts`
+- **微博（7）**: `weibo_hot_search`、`weibo_keyword_search`、`weibo_post_comments`、`weibo_post_detail`、`weibo_sub_comments`、`weibo_user_info`、`weibo_user_posts`
+- **快手（7）**: `ks_hot_list`、`ks_keyword_search`、`ks_post_comments`、`ks_post_detail`、`ks_sub_comments`、`ks_user_info`、`ks_user_posts`
+- **知乎（7）**: `zhihu_hot_list`、`zhihu_keyword_search`、`zhihu_post_comments`、`zhihu_post_detail`、`zhihu_sub_comments`、`zhihu_user_info`、`zhihu_user_posts`
+- **TikTok（13）**: `tiktok_keyword_search`、`tiktok_post_comments`、`tiktok_post_detail`、`tiktok_shop_hot_products`、`tiktok_shop_categories`、`tiktok_shop_category_products`、`tiktok_shop_product_search`、`tiktok_shop_seller_products`、`tiktok_shop_product_detail`、`tiktok_shop_product_reviews`、`tiktok_sub_comments`、`tiktok_user_info`、`tiktok_user_posts`
+- **Twitter/X（6）**: `tw_keyword_search`、`tw_post_comments`、`tw_post_detail`、`tw_trending`、`tw_user_info`、`tw_user_posts`
+- **YouTube（6）**: `yt_keyword_search`、`yt_post_comments`、`yt_post_detail`、`yt_sub_comments`、`yt_user_info`、`yt_user_posts`
+- **小红书（6）**: `xhs_note_comments`、`xhs_note_detail`、`xhs_note_search`、`xhs_sub_comments`、`xhs_user_info`、`xhs_user_notes`
+- **视频号（7）**: `channels_post_comments`、`channels_post_detail`、`channels_search_in_channel`、`channels_sub_comments`、`channels_user_info`、`channels_user_posts`、`channels_search_videos`
+- **微信公众号（4）**: `wechat_mp_article_detail`、`wechat_mp_article_comments`、`wechat_mp_account_articles`、`wechat_mp_account_profile`
+- **1688（5）**: `item_get_1688`、`item_get_company_1688`、`item_review_1688`、`item_search_1688`、`item_search_img_1688`
+- **淘宝（4）**: `taobao_comments`、`taobao_item_get`、`taobao_original_detail`、`taobao_shop_search`
+- **京东（4）**: `jd_comments`、`jd_comments_v2`、`jd_item_get`、`jd_shop_search`
+
+每个工具的参数与计费说明通过 `tools/list` 返回，完整目录见 [README](README.md)。
 
 ## 协议实现说明
 
 - `initialize` → 返回服务器信息与 capabilities
-- `tools/list` → 返回 30 个工具及 JSON Schema 参数定义
+- `tools/list` → 返回 103 个工具及 JSON Schema 参数定义
 - `tools/call` → 服务端转发至本机 API Hub（127.0.0.1:5432），**鉴权/限流/扣费/日志全部复用 REST 全链路**，不存在双套计费
 - 无状态实现：不支持 GET/SSE 长连接（返回 405），兼容所有 Streamable-HTTP 客户端
 - 响应过大自动截断（80KB），提示用更精确参数重试

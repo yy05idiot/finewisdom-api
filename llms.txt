@@ -1,6 +1,6 @@
 # Finewisdom API
 
-> 统一 REST GET 接口平台：社媒（抖音/小红书/微博/B站/知乎/快手/视频号/TikTok/IG/YouTube/Twitter）+ 电商（淘宝/京东/1688），共 89 个接口。
+> 统一 REST GET 接口平台：社媒（抖音/小红书/微博/B站/知乎/快手/视频号/公众号/TikTok+TikTok Shop/IG/YouTube/Twitter）+ 电商（淘宝/京东/1688），共 103 个接口。
 
 ## 调用协议
 
@@ -14,30 +14,33 @@
 ### 抖音
 
 - `douyin_author_info`: 获取抖音作者详细信息
-- `douyin_keyword_search`: 按关键词搜索抖音内容
+- `douyin_author_search`: 获取抖音作者的作品（视频）列表，支持游标翻页
+- `douyin_keyword_search`: 按关键词搜索抖音内容（综合搜索，返回视频列表）
 - `douyin_product_comments`: 获取抖音商品评论列表
-- `douyin_product_detail`: 获取抖音商品详情（Yx2接口）
-- `douyin_product_keyword_search`: 按关键词搜索抖音商品
+- `douyin_product_detail`: 获取抖音商品详情（v1，yx2 通道）
+- `douyin_product_detail_v2`: 抖音商品详情 v2（native 通道，Cookie 池直连抖音）
+- `douyin_product_detail_v3`: 抖音商品详情 v3（数据源 EveryInfra，字段已归一化）
+- `douyin_product_keyword_search`: 按关键词搜索抖音商城商品（数据源 EveryInfra）
 - `douyin_shop_search`: 搜索抖音店铺商品
 - `douyin_video_comments`: 获取抖音视频的评论列表
 - `douyin_video_detail`: 获取抖音视频详细信息
-- `douyin_video_like_count`: 获取抖音视频点赞数
-- `douyin_video_play_count`: 获取抖音视频播放量
+- `douyin_video_like_count`: 获取抖音视频点赞数，只返回 aweme_id + like_count 两个字段（单指标轻量接口）
+- `douyin_video_play_count`: 获取抖音视频播放量，只返回 aweme_id + play_count 两个字段（单指标轻量接口）
 
 ### B站
 
-- `bili_hot_search`: 获取B站热搜词（TikHub备用源）
-- `bili_keyword_search`: B站综合搜索（TikHub备用源）
-- `bili_post_comments`: 获取B站视频评论（TikHub备用源）
-- `bili_post_detail`: 获取B站视频详情（TikHub备用源）
-- `bili_sub_comments`: 获取B站评论的回复（TikHub备用源）
-- `bili_user_info`: 获取B站UP主信息（TikHub备用源）
-- `bili_user_posts`: 获取B站UP主投稿列表（TikHub备用源）
+- `bili_hot_search`: 获取B站热搜词
+- `bili_keyword_search`: B站综合搜索
+- `bili_post_comments`: 获取B站视频评论
+- `bili_post_detail`: 获取B站视频详情
+- `bili_sub_comments`: 获取B站评论的回复
+- `bili_user_info`: 获取B站UP主信息
+- `bili_user_posts`: 获取B站UP主投稿列表
 
 ### Instagram
 
 - `ig_keyword_search`: Instagram综合搜索（用户/话题/地点）
-- `ig_post_comments`: 获取Instagram帖子评论（需先转media_id）
+- `ig_post_comments`: 获取Instagram帖子评论（按帖子短码调用）
 - `ig_post_detail`: 按shortcode获取Instagram帖子详情
 - `ig_shortcode_to_media_id`: 帖子shortcode转media_id（评论接口前置）
 - `ig_sub_comments`: 获取Instagram评论的子评论
@@ -79,18 +82,25 @@
 - `tiktok_keyword_search`: TikTok综合搜索
 - `tiktok_post_comments`: 获取TikTok视频评论
 - `tiktok_post_detail`: 获取TikTok视频详情
+- `tiktok_shop_hot_products`: 获取TikTok商城热卖榜
+- `tiktok_shop_categories`: 获取TikTok商城类目
+- `tiktok_shop_category_products`: 获取TikTok类目商品
+- `tiktok_shop_product_search`: 搜索TikTok商城商品
+- `tiktok_shop_seller_products`: 获取TikTok店铺商品
+- `tiktok_shop_product_detail`: 获取TikTok商品详情
+- `tiktok_shop_product_reviews`: 获取TikTok商品评论
 - `tiktok_sub_comments`: 获取TikTok评论回复
 - `tiktok_user_info`: 获取TikTok用户信息
 - `tiktok_user_posts`: 获取TikTok用户视频列表
 
-### Twitter
+### Twitter/X
 
 - `tw_keyword_search`: 搜索推文
 - `tw_post_comments`: 获取推文评论（回复）
 - `tw_post_detail`: 获取推文详情
 - `tw_trending`: 获取推特趋势话题
 - `tw_user_info`: 获取推特用户信息
-- `tw_user_posts`: 获取用户推文列表
+- `tw_user_posts`: 获取用户推文列表（screen_name 与 rest_id 二选一）
 
 ### YouTube
 
@@ -118,6 +128,14 @@
 - `channels_sub_comments`: 获取视频号评论的回复
 - `channels_user_info`: 获取视频号账号资料
 - `channels_user_posts`: 获取视频号账号作品列表
+- `channels_search_videos`: 搜索视频号视频（微信搜一搜 video 垂类，不是号内搜索）
+
+### 微信公众号
+
+- `wechat_mp_article_detail`: 获取微信公众号文章详情（H5 版，推荐）
+- `wechat_mp_article_comments`: 获取微信公众号文章的一级评论（单页，buffer 游标翻页）
+- `wechat_mp_account_articles`: 获取微信公众号历史发文列表（文章 tab，单页）
+- `wechat_mp_account_profile`: 获取微信公众号资料页
 
 ### 1688
 
@@ -130,15 +148,14 @@
 ### 淘宝
 
 - `taobao_comments`: 获取淘宝商品评论列表
-- `taobao_item_desc`: 获取淘宝商品描述信息
-- `taobao_item_get`: 获取淘宝商品详情信息
-- `taobao_original_detail`: 获取淘宝券前详情（不含券后价、券面额、佣金等，建议只用来获取标题图片等信息）
+- `taobao_item_get`: 获取淘宝商品详情信息，含价格与优惠口径
+- `taobao_original_detail`: 获取淘宝券前详情（不含券后价、券面额、佣金）
 - `taobao_shop_search`: 搜索淘宝店铺商品列表
 
 ### 京东
 
 - `jd_comments`: 获取京东商品评论列表
-- `jd_item_desc`: 获取京东商品描述信息
+- `jd_comments_v2`: 获取京东商品评论列表（数据源 EveryInfra，按时间倒序，每页固定 10 条
 - `jd_item_get`: 获取京东商品详情信息（不含券后价、券面额、佣金等，建议只用来获取标题图片等信息）
 - `jd_shop_search`: 搜索京东店铺商品列表
 
