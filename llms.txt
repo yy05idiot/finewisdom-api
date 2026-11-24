@@ -1,6 +1,6 @@
 # Finewisdom API
 
-> 统一 REST GET 接口平台：社媒（抖音/小红书/微博/B站/知乎/快手/视频号/公众号/TikTok+TikTok Shop/IG/YouTube/Twitter）+ 电商（淘宝/京东/1688），共 103 个接口。
+> 统一 REST GET 接口平台：社媒（抖音/小红书/微博/B站/知乎/快手/视频号/公众号/TikTok+TikTok Shop/IG/YouTube/Twitter）+ 电商（淘宝/京东/1688），共 104 个接口。
 
 ## 调用协议
 
@@ -133,6 +133,7 @@
 ### 微信公众号
 
 - `wechat_mp_article_detail`: 获取微信公众号文章详情（H5 版，推荐）
+- `wechat_mp_article_stats`: 获取微信公众号文章阅读量/点赞/在看/分享/收藏/评论数（h5=true 只返回评论数）
 - `wechat_mp_article_comments`: 获取微信公众号文章的一级评论（单页，buffer 游标翻页）
 - `wechat_mp_account_articles`: 获取微信公众号历史发文列表（文章 tab，单页）
 - `wechat_mp_account_profile`: 获取微信公众号资料页

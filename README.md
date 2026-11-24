@@ -1,6 +1,6 @@
 # Finewisdom API
 
-> 社媒 + 电商数据统一接口平台 —— 一个 Token，103 个接口，覆盖国内外主流平台。
+> 社媒 + 电商数据统一接口平台 —— 一个 Token，104 个接口，覆盖国内外主流平台。
 
 [![Website](https://img.shields.io/badge/Website-finewisdom.top-blue)](https://finewisdom.top) [![Console](https://img.shields.io/badge/Console-%E6%8E%A7%E5%88%B6%E5%8F%B0-2ea44f)](https://finewisdom.top) [![MCP](https://img.shields.io/badge/MCP-finewisdom.top%2Fmcp-8a2be2)](MCP.md) [![Protocol](https://img.shields.io/badge/Protocol-REST%20GET-orange)](#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B) [![Finewisdom MCP server on Glama](https://glama.ai/mcp/connectors/io.github.yy05idiot/finewisdom/badges/score.svg)](https://glama.ai/mcp/connectors/io.github.yy05idiot/finewisdom)
 
@@ -19,12 +19,12 @@
 | YouTube | YouTube | 6 | 视频/评论/用户/频道视频/搜索 |
 | 小红书 | 小红书 | 6 | 笔记搜索/详情/评论/用户/用户笔记 |
 | 视频号 | 视频号 | 7 | 作品/评论/用户/号内搜/搜索视频 |
-| 微信公众号 | 微信公众号 | 4 | 文章详情/评论/账号文章/账号资料 |
+| 微信公众号 | 微信公众号 | 5 | 文章详情/阅读量/评论/账号文章/账号资料 |
 | 1688 | 1688 | 5 | 商品详情/评论/搜索/以图搜图/公司信息 |
 | 淘宝 | 淘宝 | 4 | 商品详情/评论/店铺搜索/原始详情 |
 | 京东 | 京东 | 4 | 商品详情/评论/店铺搜索 |
 
-**共 103 个在线接口**（REST 与 MCP 同一清单）。支持 REST GET 与 [MCP 协议](MCP.md)（AI Agent 直连：`https://finewisdom.top/mcp`）。
+**共 104 个在线接口**（REST 与 MCP 同一清单）。支持 REST GET 与 [MCP 协议](MCP.md)（AI Agent 直连：`https://finewisdom.top/mcp`）。
 
 ## 快速开始
 
@@ -197,11 +197,12 @@ curl "https://finewisdom.top/api?token=YOUR_TOKEN&method=douyin_video_detail&awe
 | `channels_user_posts` | 获取视频号账号作品列表 | 0.3 | 必填: username；可选: last_buffer |
 | `channels_search_videos` | 搜索视频号视频（微信搜一搜 video 垂类，不是号内搜索） | 0.2 | 必填: keyword；可选: sort、publish_time、duration、cursor、offset、raw |
 
-### 微信公众号（4 个）
+### 微信公众号（5 个）
 
 | 接口 | 说明 | 价格(元/次) | 主要参数 |
 |---|---|---|---|
 | `wechat_mp_article_detail` | 获取微信公众号文章详情（H5 版，推荐） | 0.2 | 必填: url；可选: raw、h5 |
+| `wechat_mp_article_stats` | 获取微信公众号文章阅读量/点赞/在看/分享/收藏/评论数 | 0.2 | 必填: url；可选: h5、raw |
 | `wechat_mp_article_comments` | 获取微信公众号文章的一级评论（单页，buffer 游标翻页） | 0.2 | 必填: url；可选: buffer、comment_id、raw |
 | `wechat_mp_account_articles` | 获取微信公众号历史发文列表（文章 tab，单页） | 0.2 | 必填: username；可选: offset、item_show_type、page_size、raw |
 | `wechat_mp_account_profile` | 获取微信公众号资料页 | 0.2 | 必填: username；可选: raw |
