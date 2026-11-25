@@ -1,6 +1,6 @@
 # Finewisdom API
 
-> 统一 REST GET 接口平台：社媒（抖音/小红书/微博/B站/知乎/快手/视频号/公众号/TikTok+TikTok Shop/IG/YouTube/Twitter）+ 电商（淘宝/京东/1688），共 104 个接口。
+> 统一 REST GET 接口平台：社媒（抖音/小红书/微博/B站/知乎/快手/视频号/公众号/TikTok+TikTok Shop/IG/YouTube/Twitter）+ 电商（淘宝/京东/1688），共 105 个接口。
 
 ## 调用协议
 
@@ -20,6 +20,7 @@
 - `douyin_product_detail`: 获取抖音商品详情（v1）
 - `douyin_product_detail_v2`: 抖音商品详情 v2（native 通道，直连抖音网页端）
 - `douyin_product_detail_v3`: 抖音商品详情 v3（字段已归一化）
+- `douyin_product_detail_v4`: 获取抖音商品详情（原生结构 + SKU 级价格库存合并返回；顶层 sku_prices 列表含价格/规格/库存/规格图）
 - `douyin_product_keyword_search`: 按关键词搜索抖音商城商品
 - `douyin_shop_search`: 搜索抖音店铺商品
 - `douyin_video_comments`: 获取抖音视频的评论列表

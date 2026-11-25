@@ -1,6 +1,6 @@
 # Finewisdom API
 
-> 社媒 + 电商数据统一接口平台 —— 一个 Token，104 个接口，覆盖国内外主流平台。
+> 社媒 + 电商数据统一接口平台 —— 一个 Token，105 个接口，覆盖国内外主流平台。
 
 [![Website](https://img.shields.io/badge/Website-finewisdom.top-blue)](https://finewisdom.top) [![Console](https://img.shields.io/badge/Console-%E6%8E%A7%E5%88%B6%E5%8F%B0-2ea44f)](https://finewisdom.top) [![MCP](https://img.shields.io/badge/MCP-finewisdom.top%2Fmcp-8a2be2)](MCP.md) [![Protocol](https://img.shields.io/badge/Protocol-REST%20GET-orange)](#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B) [![Finewisdom MCP server on Glama](https://glama.ai/mcp/connectors/io.github.yy05idiot/finewisdom/badges/score.svg)](https://glama.ai/mcp/connectors/io.github.yy05idiot/finewisdom)
 
@@ -67,6 +67,7 @@ curl "https://finewisdom.top/api?token=YOUR_TOKEN&method=douyin_video_detail&awe
 | `douyin_product_detail` | 获取抖音商品详情（v1） | 0.3 | 必填: product_id |
 | `douyin_product_detail_v2` | 抖音商品详情 v2（native 通道，直连抖音网页端） | 0.2 | 必填: product_id；可选: sku_id |
 | `douyin_product_detail_v3` | 抖音商品详情 v3（字段已归一化） | 0.3 | 必填: product_id |
+| `douyin_product_detail_v4` | 获取抖音商品详情（原生结构 + SKU 级价格/库存/规格图合并返回） | 0.3 | 必填: product_id；可选: sku_id |
 | `douyin_product_keyword_search` | 按关键词搜索抖音商城商品 | 0.3 | 必填: keyword；可选: page、count |
 | `douyin_shop_search` | 搜索抖音店铺商品 | 0.3 | 必填: shop_id；可选: page |
 | `douyin_video_comments` | 获取抖音视频的评论列表 | 0.2 | 必填: aweme_id；可选: page |
