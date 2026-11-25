@@ -17,10 +17,10 @@
 - `douyin_author_search`: 获取抖音作者的作品（视频）列表，支持游标翻页
 - `douyin_keyword_search`: 按关键词搜索抖音内容（综合搜索，返回视频列表）
 - `douyin_product_comments`: 获取抖音商品评论列表
-- `douyin_product_detail`: 获取抖音商品详情（v1，yx2 通道）
-- `douyin_product_detail_v2`: 抖音商品详情 v2（native 通道，Cookie 池直连抖音）
-- `douyin_product_detail_v3`: 抖音商品详情 v3（数据源 EveryInfra，字段已归一化）
-- `douyin_product_keyword_search`: 按关键词搜索抖音商城商品（数据源 EveryInfra）
+- `douyin_product_detail`: 获取抖音商品详情（v1）
+- `douyin_product_detail_v2`: 抖音商品详情 v2（native 通道，直连抖音网页端）
+- `douyin_product_detail_v3`: 抖音商品详情 v3（字段已归一化）
+- `douyin_product_keyword_search`: 按关键词搜索抖音商城商品
 - `douyin_shop_search`: 搜索抖音店铺商品
 - `douyin_video_comments`: 获取抖音视频的评论列表
 - `douyin_video_detail`: 获取抖音视频详细信息
@@ -156,7 +156,7 @@
 ### 京东
 
 - `jd_comments`: 获取京东商品评论列表
-- `jd_comments_v2`: 获取京东商品评论列表（数据源 EveryInfra，按时间倒序，每页固定 10 条
+- `jd_comments_v2`: 获取京东商品评论列表（按时间倒序，每页固定 10 条
 - `jd_item_get`: 获取京东商品详情信息（不含券后价、券面额、佣金等，建议只用来获取标题图片等信息）
 - `jd_shop_search`: 搜索京东店铺商品列表
 

@@ -64,10 +64,10 @@ curl "https://finewisdom.top/api?token=YOUR_TOKEN&method=douyin_video_detail&awe
 | `douyin_author_search` | 获取抖音作者的作品（视频）列表，支持游标翻页 | 0.1 | 必填: sec_user_id；可选: cursor |
 | `douyin_keyword_search` | 按关键词搜索抖音内容（综合搜索，返回视频列表） | 0.1 | 必填: keyword；可选: page |
 | `douyin_product_comments` | 获取抖音商品评论列表 | 0.2 | 必填: product_id；可选: page |
-| `douyin_product_detail` | 获取抖音商品详情（v1，yx2 通道） | 0.3 | 必填: product_id |
-| `douyin_product_detail_v2` | 抖音商品详情 v2（native 通道，Cookie 池直连抖音） | 0.2 | 必填: product_id；可选: sku_id |
-| `douyin_product_detail_v3` | 抖音商品详情 v3（数据源 EveryInfra，字段已归一化） | 0.3 | 必填: product_id |
-| `douyin_product_keyword_search` | 按关键词搜索抖音商城商品（数据源 EveryInfra） | 0.3 | 必填: keyword；可选: page、count |
+| `douyin_product_detail` | 获取抖音商品详情（v1） | 0.3 | 必填: product_id |
+| `douyin_product_detail_v2` | 抖音商品详情 v2（native 通道，直连抖音网页端） | 0.2 | 必填: product_id；可选: sku_id |
+| `douyin_product_detail_v3` | 抖音商品详情 v3（字段已归一化） | 0.3 | 必填: product_id |
+| `douyin_product_keyword_search` | 按关键词搜索抖音商城商品 | 0.3 | 必填: keyword；可选: page、count |
 | `douyin_shop_search` | 搜索抖音店铺商品 | 0.3 | 必填: shop_id；可选: page |
 | `douyin_video_comments` | 获取抖音视频的评论列表 | 0.2 | 必填: aweme_id；可选: page |
 | `douyin_video_detail` | 获取抖音视频详细信息 | 0.1 | 必填: aweme_id |
@@ -231,7 +231,7 @@ curl "https://finewisdom.top/api?token=YOUR_TOKEN&method=douyin_video_detail&awe
 | 接口 | 说明 | 价格(元/次) | 主要参数 |
 |---|---|---|---|
 | `jd_comments` | 获取京东商品评论列表 | - | 必填: item_id；可选: page |
-| `jd_comments_v2` | 获取京东商品评论列表（数据源 EveryInfra，按时间倒序，每页固定 10 条 | - | 必填: item_id；可选: page |
+| `jd_comments_v2` | 获取京东商品评论列表（按时间倒序，每页固定 10 条 | - | 必填: item_id；可选: page |
 | `jd_item_get` | 获取京东商品详情信息（不含券后价、券面额、佣金等，建议只用来获取标题图片等信息） | 0.1 | 必填: item_id |
 | `jd_shop_search` | 搜索京东店铺商品列表 | 0.2 | 可选: seller_id、page、shop_id |
 
